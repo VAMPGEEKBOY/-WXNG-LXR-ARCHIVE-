@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>YVL ARCHIVE</title>
+<style>
+html,body{margin:0;height:100%;background:#000;color:#ddd;font-family:Consolas,monospace;overflow:hidden}
+body:before{content:"";position:fixed;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.03),rgba(255,255,255,.03) 1px,transparent 2px,transparent 4px);pointer-events:none;animation:flicker .12s infinite}
+@keyframes flicker{50%{opacity:.96}}
+.wrap{display:flex;height:100%;align-items:center;justify-content:center}
+.box{border:1px solid #555;padding:30px;background:rgba(0,0,0,.85);box-shadow:0 0 25px rgba(255,255,255,.08);width:340px}
+.glitch{font-size:24px;letter-spacing:3px;animation:g 2s infinite}
+@keyframes g{0%,100%{text-shadow:2px 0 red,-2px 0 cyan}50%{text-shadow:-2px 0 red,2px 0 cyan}}
+input{width:100%;padding:10px;background:#080808;color:#fff;border:1px solid #666;margin:14px 0}
+button{width:100%;padding:10px;background:#eee;border:0}
+.small{color:#888;font-size:12px}
+#msg{margin-top:12px;color:#aaa}
+</style></head><body>
+<div class='wrap'><div class='box'>
+<div class='glitch'>YVL ARCHIVE // 001</div>
+<p id='boot'></p>
+<p>ENTER THE RITUAL KEY</p>
+<input id='pw' type='password' placeholder='PASSWORD'>
+<button onclick='go()'>ACCESS</button>
+<div id='msg'></div>
+<p class='small'>Better Burn Sum Sage Whn You 'Round Me.</p>
+</div></div>
+<script>
+const PASSWORD="$wxng*Lxr";
+const REDIRECT="https://example.com";
+let t="INITIALIZING ARCHIVE...";
+let i=0;let b=document.getElementById('boot');
+(function type(){if(i<t.length){b.textContent+=t[i++];setTimeout(type,45);}else{b.textContent+="\nSTATUS: ACCESS RESTRICTED";}})();
+function go(){
+if(document.getElementById('pw').value===PASSWORD){
+document.body.style.background="#020";
+document.getElementById('msg').textContent="ACCESS GRANTED";
+setTimeout(()=>location.href=REDIRECT,1200);
+}else document.getElementById('msg').textContent="ACCESS DENIED";
+}
+</script></body></html>
